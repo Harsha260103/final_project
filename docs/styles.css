@@ -1,0 +1,42 @@
+body {
+    background-image: url('images/bgk.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-position: center; /* Centers the image */
+    color: white; /* Optional: Adjust text color for readability */
+}
+
+header, nav, footer {
+    background-color: transparent; /* Transparent background */
+    color: white; /* Ensures text is readable */
+    box-shadow: none; /* Removes any shadows */
+    border: none; /* Removes any borders */
+}
+
+/* Optional: Adjust link styles in header, nav, and footer */
+header a, nav a, footer a {
+    color: white; /* Set link color to white */
+    text-decoration: none; /* Remove underline */
+}
+
+header a:hover, nav a:hover, footer a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+.fold-toggle {
+    color: #007BFF !important; /* Change the color to your preference and force it */
+    font-weight: bold; /* Makes the text bold */
+    font-size: 16px; /* Optional: Adjusts the font size */
+}
+
+.fold-toggle:hover {
+    color: #0056b3 !important; /* Change hover color to your preference */
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}
+
+/* Ensure the background matches your design */
+.fold-toggle:after {
+    content: ""; /* Removes extra default styling if any */
+    background-color: transparent; /* Keeps the background clean */
+}

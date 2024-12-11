@@ -1,0 +1,122 @@
+---
+title: "CODE"
+editor: visual
+---
+
+# Load necessary libraries
+
+library(GGally) library(ggplot2)
+
+# Read the dataset
+
+data \<- read.csv("ODI data.csv", stringsAsFactors = FALSE)
+
+# Convert necessary columns to numeric
+
+data$Runs <- as.numeric(gsub(",", "", data$Runs)) data$BF <- as.numeric(gsub(",", "", data$BF)) data$Ave <- as.numeric(gsub(",", "", data$Ave)) data$SR <- as.numeric(gsub(",", "", data$SR)) data$X100 <- as.numeric(gsub(",", "", data$X100)) data$X50 <- as.numeric(gsub(",", "", data$X50)) data$Inns <- as.numeric(gsub(",", "", data$Inns)) data$NO <- as.numeric(gsub(",", "", data$NO))
+
+# Select all relevant numeric columns for the pairs plot
+
+selected_data \<- data\[, c("Runs", "BF", "Ave", "SR", "X100", "X50", "Inns", "NO")\]
+
+# Create the pairs plot
+
+ggpairs( selected_data, title = "Pairs Plot for ODI Data", upper = list(continuous = wrap("cor", size = 4)), lower = list(continuous = wrap("points", size = 1.5)), diag = list(continuous = wrap("densityDiag", alpha = 0.5)) )
+
+# Load necessary libraries
+
+library(dplyr)
+
+library(plotly)
+
+# Read and prepare data
+
+data \<- read.csv("ODI data.csv", stringsAsFactors = FALSE)
+
+# Convert numeric columns and clean data
+
+data$Runs <- as.numeric(gsub(",", "", data$Runs)) data$SR <- as.numeric(gsub(",", "", data$SR)) data$Ave <- as.numeric(gsub(",", "", data$Ave)) data$X100 <- as.numeric(gsub(",", "", data$X100))
+
+# Add regions to players
+
+data \<- data %\>% mutate( Region = case_when( grepl("INDIA", Player) \~ "India", grepl("PAK", Player) \~ "Pakistan", grepl("AUS", Player) \~ "Australia", grepl("SA", Player) \~ "South Africa", grepl("SL", Player) \~ "Sri Lanka", grepl("WI", Player) \~ "West Indies", grepl("NZ", Player) \~ "New Zealand", grepl("ENG", Player) \~ "England", grepl("BDESH", Player) \~ "Bangladesh", grepl("ZIM", Player) \~ "Zimbabwe", grepl("AFG", Player) \~ "Afghanistan", TRUE \~ "Other" ) )
+
+# Perform ANOVA to analyze differences in runs across regions
+
+anova_results \<- aov(Runs \~ Region, data = data) anova_summary \<- summary(anova_results)
+
+# Extract the p-value from ANOVA
+
+anova_p_value \<- anova_summary\[\[1\]\]\$`Pr(>F)`\[1\]
+
+# Check if ANOVA is significant and perform post-hoc analysis
+
+if (!is.na(anova_p_value) && anova_p_value \< 0.05) { tukey_results \<- TukeyHSD(anova_results) print("Tukey HSD Post-Hoc Results:") print(tukey_results) } else { print("No significant differences found in ANOVA.") }
+
+# Regional statistics calculation
+
+regional_stats \<- data %\>% group_by(Region) %\>% summarise( Avg_Runs = mean(Runs, na.rm = TRUE), Total_Players = n(), Avg_Strike_Rate = mean(SR, na.rm = TRUE), Total_Centuries = sum(X100, na.rm = TRUE), Avg_Average = mean(Ave, na.rm = TRUE) )
+
+# Create interactive bubble plot
+
+plot_ly( regional_stats, x = \~Avg_Runs, y = \~Avg_Strike_Rate, size = \~Total_Players, color = \~Region, text = \~paste( "Region:", Region, "<br>Average Runs:", round(Avg_Runs, 1), "<br>Players:", Total_Players, "<br>Strike Rate:", round(Avg_Strike_Rate, 1), "<br>Centuries:", Total_Centuries, "<br>Batting Average:", round(Avg_Average, 1) ), type = "scatter", mode = "markers", marker = list( sizemode = "area", opacity = 0.7, line = list(color = "white", width = 1) ), hoverinfo = "text" ) %\>% layout( title = "Cricket Performance Analysis by Region", xaxis = list(title = "Average Runs per Player"), yaxis = list(title = "Average Strike Rate"), showlegend = TRUE, plot_bgcolor = "rgb(240, 240, 240)", paper_bgcolor = "white", margin = list(t = 100) )
+
+# Load data
+
+data \<- read.csv("ODI data.csv")
+
+# Categorize players by strike rate (High: \>90, Low: \<=90)
+
+data$SR_Category <- ifelse(data$SR \> 90, "High", "Low")
+
+# Create a contingency table
+
+contingency_table \<- table(data$SR_Category, data$X100 \> 0)
+
+# Perform Chi-Square Test for Independence
+
+chi_square_test \<- chisq.test(contingency_table)
+
+# Print Chi-Square Test Results
+
+print(chi_square_test)
+
+# Create pie chart for Strike Rate vs Centuries
+
+plot_ly( labels = c("High Strike Rate & No Century", "High Strike Rate & Century", "Low Strike Rate & No Century", "Low Strike Rate & Century"), values = c(contingency_table\[1, 1\], contingency_table\[1, 2\], contingency_table\[2, 1\], contingency_table\[2, 2\]), type = "pie", textinfo = "label+percent", hoverinfo = "label+value" ) %\>% layout( title = "Strike Rate vs. Centuries (Pie Chart)", plot_bgcolor = "rgb(240, 240, 240)", paper_bgcolor = "white" )
+
+# Read and prepare data
+
+data \<- read.csv("ODI data.csv", stringsAsFactors = FALSE)
+
+# Convert strike rate to numeric
+
+data$SR <- as.numeric(as.character(data$SR))
+
+# Categorize strike rates
+
+data$SR_Category <- case_when(
+  data$SR \>= 100 \~ "Very High (100+)", data$SR >= 85 ~ "High (85-99)",
+  data$SR \>= 70 \~ "Medium (70-84)", TRUE \~ "Low (\<70)" )
+
+# Create batting position categories
+
+data$Position <- case_when(
+  grepl("opener|opening", tolower(data$Player)) \~ "Opener", grepl("wicket\|keeper", tolower(data$Player)) ~ "Wicketkeeper",
+  data$SR \>= 90 \~ "Aggressive Middle", data\$SR \>= 75 \~ "Anchor Middle", TRUE \~ "Lower Order" )
+
+# Create a contingency table
+
+position_sr_matrix \<- table(data$Position, data$SR_Category)
+
+# Perform Chi-Square Test for Independence
+
+chi_square_test \<- chisq.test(position_sr_matrix)
+
+# Print test results
+
+print(chi_square_test)
+
+# Create interactive heatmap with custom colors
+
+plot_ly( x = colnames(position_sr_matrix), y = rownames(position_sr_matrix), z = as.matrix(position_sr_matrix), type = "heatmap", colorscale = list( c(0, "#FFF3E0"), \# Light Orange c(0.25, "#FFB74D"), \# Medium Orange c(0.5, "#FF9800"), \# Orange c(0.75, "#F57C00"), \# Dark Orange c(1, "#E65100") \# Deep Orange ), text = position_sr_matrix, texttemplate = "%{text}", textfont = list( color = "black", size = 14 ), hoverongaps = FALSE ) %\>% layout( title = list( text = "Strike Rate Distribution Across Batting Positions", font = list(size = 16) ), xaxis = list( title = "Strike Rate Category", titlefont = list(size = 14) ), yaxis = list( title = "Batting Position", titlefont = list(size = 14) ), plot_bgcolor = "#FFFFFF", paper_bgcolor = "#FFFFFF", margin = list(t = 100) )

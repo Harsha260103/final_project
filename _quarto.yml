@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: docs
+  
+
+website:
+  title: "CRICKET PERFORMANCE ANALYSIS"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - page2.qmd
+    
+
+format:
+  html:
+    theme: lumen
+    css: styles.css
+    toc: true
+    code-fold: true
+
+
+

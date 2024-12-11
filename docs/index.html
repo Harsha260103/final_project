@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CRICKET PERFORMANCE ANALYSIS - FINAL PROJECT</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CRICKET PERFORMANCE ANALYSIS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./page2.html"> 
+<span class="menu-text">CODE</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">ABSTRACT</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">INTRODUCTION</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">DATASET</a></li>
+  <li><a href="#is-there-a-significant-difference-in-total-runs-scored-by-players-from-different-regions" id="toc-is-there-a-significant-difference-in-total-runs-scored-by-players-from-different-regions" class="nav-link" data-scroll-target="#is-there-a-significant-difference-in-total-runs-scored-by-players-from-different-regions">Is there a significant difference in total runs scored by players from different regions?</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">INTERPRETATION</a></li>
+  <li><a href="#are-high-strike-rates-associated-with-fewer-centuries-and-half-centuries" id="toc-are-high-strike-rates-associated-with-fewer-centuries-and-half-centuries" class="nav-link" data-scroll-target="#are-high-strike-rates-associated-with-fewer-centuries-and-half-centuries">Are high strike rates associated with fewer centuries and half-centuries?</a></li>
+  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1">INTERPRETATION</a></li>
+  <li><a href="#do-higher-strike-rates-correlate-with-specific-roles-in-the-team-e.g.-openers-vs.-middle-order" id="toc-do-higher-strike-rates-correlate-with-specific-roles-in-the-team-e.g.-openers-vs.-middle-order" class="nav-link" data-scroll-target="#do-higher-strike-rates-correlate-with-specific-roles-in-the-team-e.g.-openers-vs.-middle-order">Do higher strike rates correlate with specific roles in the team (e.g., openers vs.&nbsp;middle-order)?</a></li>
+  <li><a href="#interpretation-2" id="toc-interpretation-2" class="nav-link" data-scroll-target="#interpretation-2">INTERPRETATION</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">CONCLUSION</a></li>
+  <li><a href="#refrences" id="toc-refrences" class="nav-link" data-scroll-target="#refrences">REFRENCES</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">FINAL PROJECT</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harsha Reddy Vanga, Rohith Venkata Krishna Javvadi &amp; Amarnath Reddy Ganta </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level1">
+<h1>ABSTRACT</h1>
+<p>This project delves into statistical analyses to uncover insights into cricket performance trends and player contributions. Through data-driven methods, we classify players into performance tiers, analyze strike rates’ associations with scoring patterns and roles, and compare career impacts of cricket legends. Employing advanced statistical models and visualizations, this study provides actionable insights to inform team strategies and player evaluations.</p>
+</section>
+<section id="introduction" class="level1">
+<h1>INTRODUCTION</h1>
+<p>Cricket analytics plays a crucial role in understanding player performance and team dynamics. This project utilizes a comprehensive dataset of ODI cricket statistics to explore critical questions about player roles, scoring patterns, and career impacts. By applying statistical models such as Chi-Square tests and t-tests, we aim to identify patterns and relationships that influence game outcomes and decision-making processes. The study’s findings offer valuable insights for teams, analysts, and enthusiasts seeking to better understand the nuances of the game.</p>
+</section>
+<section id="dataset" class="level1">
+<h1>DATASET</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'GGally':
+  method from   
+  +.gg   ggplot2</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the dataset</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ODI data.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert necessary columns to numeric</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Runs <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>Runs))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>BF <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>BF))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Ave <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>Ave))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>SR <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>SR))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>X100 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>X100))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>X50 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>X50))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Inns <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>Inns))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>NO <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>NO))</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all relevant numeric columns for the pairs plot</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>selected_data <span class="ot">&lt;-</span> data[, <span class="fu">c</span>(<span class="st">"Runs"</span>, <span class="st">"BF"</span>, <span class="st">"Ave"</span>, <span class="st">"SR"</span>, <span class="st">"X100"</span>, <span class="st">"X50"</span>, <span class="st">"Inns"</span>, <span class="st">"NO"</span>)]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the pairs plot</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  selected_data,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Pairs Plot for ODI Data"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">"cor"</span>, <span class="at">size =</span> <span class="dv">4</span>)),</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">"points"</span>, <span class="at">size =</span> <span class="fl">1.5</span>)),</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">diag =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">"densityDiag"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>))</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The dataset provides comprehensive statistics of One Day International (ODI) cricket players, showcasing their performances across various metrics. It includes records of legendary players from different teams and spans multiple decades of ODI cricket. The dataset aims to facilitate insights into individual player contributions and trends in cricket over time.</p>
+<p>Key attributes in the dataset:</p>
+<p>Player: Name of the cricketer.</p>
+<p>Span: Career duration in ODI cricket.</p>
+<p>Matches (Mat): Total number of matches played.</p>
+<p>Innings (Inns): Total number of innings batted.</p>
+<p>Not Outs (NO): Number of times the player remained not out.</p>
+<p>Runs: Total runs scored.</p>
+<p>Highest Score (HS): The highest score achieved by the player in an innings.</p>
+<p>Average (Ave): Batting average, calculated as runs divided by the number of times out.</p>
+<p>Balls Faced (BF): Total balls faced by the player.</p>
+<p>Strike Rate (SR): The rate of scoring runs per 100 balls.</p>
+<p>Hundreds (100): Number of centuries scored (100 or more runs in an innings).</p>
+<p>Fifties (50): Number of half-centuries scored (50 to 99 runs in an innings).</p>
+<p>Ducks (0): Number of times the player was dismissed without scoring.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 21%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Player</th>
+<th>Span</th>
+<th>Mat</th>
+<th>Inns</th>
+<th>NO</th>
+<th>Runs</th>
+<th>HS</th>
+<th>Ave</th>
+<th>BF</th>
+<th>SR</th>
+<th>100</th>
+<th>50</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>SR Tendulkar (INDIA)</td>
+<td>1989-2012</td>
+<td>463</td>
+<td>452</td>
+<td>41</td>
+<td>18426</td>
+<td>200*</td>
+<td>44.83</td>
+<td>21367</td>
+<td>86.23</td>
+<td>49</td>
+<td>96</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>KC Sangakkara (Asia/ICC/SL)</td>
+<td>2000-2015</td>
+<td>404</td>
+<td>380</td>
+<td>41</td>
+<td>14234</td>
+<td>169</td>
+<td>41.98</td>
+<td>18048</td>
+<td>78.86</td>
+<td>25</td>
+<td>93</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>RT Ponting (AUS/ICC)</td>
+<td>1995-2012</td>
+<td>375</td>
+<td>365</td>
+<td>39</td>
+<td>13704</td>
+<td>164</td>
+<td>42.03</td>
+<td>17046</td>
+<td>80.39</td>
+<td>30</td>
+<td>82</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>ST Jayasuriya (Asia/SL)</td>
+<td>1989-2011</td>
+<td>445</td>
+<td>433</td>
+<td>18</td>
+<td>13430</td>
+<td>189</td>
+<td>32.36</td>
+<td>14725</td>
+<td>91.2</td>
+<td>28</td>
+<td>68</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>DPMD Jayawardene (Asia/SL)</td>
+<td>1998-2015</td>
+<td>448</td>
+<td>418</td>
+<td>39</td>
+<td>12650</td>
+<td>144</td>
+<td>33.37</td>
+<td>16020</td>
+<td>78.96</td>
+<td>19</td>
+<td>77</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Inzamam-ul-Haq (Asia/PAK)</td>
+<td>1991-2007</td>
+<td>378</td>
+<td>350</td>
+<td>53</td>
+<td>11739</td>
+<td>137*</td>
+<td>39.52</td>
+<td>15812</td>
+<td>74.24</td>
+<td>10</td>
+<td>83</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>V Kohli (INDIA)</td>
+<td>2008-2019</td>
+<td>242</td>
+<td>233</td>
+<td>39</td>
+<td>11609</td>
+<td>183</td>
+<td>59.84</td>
+<td>12445</td>
+<td>93.28</td>
+<td>43</td>
+<td>55</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>JH Kallis (Afr/ICC/SA)</td>
+<td>1996-2014</td>
+<td>328</td>
+<td>314</td>
+<td>53</td>
+<td>11579</td>
+<td>139</td>
+<td>44.36</td>
+<td>15885</td>
+<td>72.89</td>
+<td>17</td>
+<td>86</td>
+<td>17</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="is-there-a-significant-difference-in-total-runs-scored-by-players-from-different-regions" class="level1">
+<h1>Is there a significant difference in total runs scored by players from different regions?</h1>
+<p>Objective:</p>
+<p>This research question aims to investigate whether players from different regions (e.g., Asia, Europe, Africa, etc.) differ significantly in their total runs scored in ODI cricket. Understanding these differences can guide cricket boards to identify regional trends in player performance and focus on talent development in underperforming regions.</p>
+<p>Cause:</p>
+<p>The analysis can reveal whether certain regions consistently produce higher-scoring players or if underperformance is a trend in specific regions. This insight can help cricket boards allocate resources and create training programs tailored to regional needs, enhancing player development and competitiveness.</p>
+<p>Statistical Model:</p>
+<p>Analysis of Variance (ANOVA)</p>
+<p>ANOVA is suitable for comparing the means of a dependent variable (total runs scored) across multiple independent groups (regions). It determines if the observed differences in means are statistically significant. How it solves the question: By evaluating the variance within and between groups, ANOVA identifies whether the differences in total runs scored across regions are likely due to random chance or reflect genuine disparities.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'plotly'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    last_plot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    layout</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read and prepare data</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ODI data.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert numeric columns and clean data</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Runs <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>Runs))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>SR <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>SR))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Ave <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>Ave))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>X100 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">""</span>, data<span class="sc">$</span>X100))</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Add regions to players</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Region =</span> <span class="fu">case_when</span>(</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"INDIA"</span>, Player) <span class="sc">~</span> <span class="st">"India"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"PAK"</span>, Player) <span class="sc">~</span> <span class="st">"Pakistan"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"AUS"</span>, Player) <span class="sc">~</span> <span class="st">"Australia"</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"SA"</span>, Player) <span class="sc">~</span> <span class="st">"South Africa"</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"SL"</span>, Player) <span class="sc">~</span> <span class="st">"Sri Lanka"</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"WI"</span>, Player) <span class="sc">~</span> <span class="st">"West Indies"</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"NZ"</span>, Player) <span class="sc">~</span> <span class="st">"New Zealand"</span>,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"ENG"</span>, Player) <span class="sc">~</span> <span class="st">"England"</span>,</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"BDESH"</span>, Player) <span class="sc">~</span> <span class="st">"Bangladesh"</span>,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"ZIM"</span>, Player) <span class="sc">~</span> <span class="st">"Zimbabwe"</span>,</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"AFG"</span>, Player) <span class="sc">~</span> <span class="st">"Afghanistan"</span>,</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Other"</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform ANOVA to analyze differences in runs across regions</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>anova_results <span class="ot">&lt;-</span> <span class="fu">aov</span>(Runs <span class="sc">~</span> Region, <span class="at">data =</span> data)</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>anova_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(anova_results)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the p-value from ANOVA</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>anova_p_value <span class="ot">&lt;-</span> anova_summary[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>]</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if ANOVA is significant and perform post-hoc analysis</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(anova_p_value) <span class="sc">&amp;&amp;</span> anova_p_value <span class="sc">&lt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  tukey_results <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_results)</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"Tukey HSD Post-Hoc Results:"</span>)</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(tukey_results)</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"No significant differences found in ANOVA."</span>)</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Tukey HSD Post-Hoc Results:"
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Runs ~ Region, data = data)
+
+$Region
+                               diff          lwr         upr     p adj
+Australia-Afghanistan     375.27961  -488.656023 1239.215239 0.9595944
+Bangladesh-Afghanistan    -14.54814  -928.988069  899.891791 1.0000000
+England-Afghanistan        77.31048  -778.593144  933.214108 1.0000000
+India-Afghanistan         385.91443  -478.355439 1250.184304 0.9508336
+New Zealand-Afghanistan   239.29570  -637.484763 1116.076163 0.9991955
+Other-Afghanistan        -329.04946 -1147.063067  488.964156 0.9772131
+Pakistan-Afghanistan      314.75314  -549.516730 1179.023014 0.9896762
+South Africa-Afghanistan  302.71770  -587.730060 1193.165452 0.9942058
+Sri Lanka-Afghanistan     365.09338  -512.144748 1242.331507 0.9704984
+West Indies-Afghanistan   260.00694  -614.554080 1134.567955 0.9982272
+Zimbabwe-Afghanistan      166.73596  -739.885061 1073.356986 0.9999836
+Bangladesh-Australia     -389.82775  -973.359866  193.704372 0.5605520
+England-Australia        -297.96913  -784.672696  188.734444 0.6917593
+India-Australia            10.63482  -490.635321  511.904970 1.0000000
+New Zealand-Australia    -135.98391  -658.528957  386.561141 0.9994869
+Other-Australia          -704.32906 -1120.809095 -287.849032 0.0000023
+Pakistan-Australia        -60.52647  -561.796612  440.743680 0.9999998
+South Africa-Australia    -72.56191  -617.728450  472.604626 0.9999994
+Sri Lanka-Australia       -10.18623  -533.498831  513.126374 1.0000000
+West Indies-Australia    -115.27267  -634.085085  403.539744 0.9998896
+Zimbabwe-Australia       -208.54365  -779.745035  362.657744 0.9894616
+England-Bangladesh         91.85862  -479.714625  663.431868 0.9999959
+India-Bangladesh          400.46257  -183.564286  984.489428 0.5182011
+New Zealand-Bangladesh    253.84384  -348.542199  856.229878 0.9676342
+Other-Bangladesh         -314.50132  -827.600944  198.598310 0.6901258
+Pakistan-Bangladesh       329.30128  -254.725576  913.328138 0.7931222
+South Africa-Bangladesh   317.26583  -304.845221  939.376890 0.8825444
+Sri Lanka-Bangladesh      379.64152  -223.410462  982.693498 0.6520814
+West Indies-Bangladesh    274.55508  -324.595933  873.706086 0.9411482
+Zimbabwe-Bangladesh       181.28410  -463.763679  826.331881 0.9989426
+India-England             308.60395  -178.692676  795.900576 0.6432937
+New Zealand-England       161.98522  -347.170525  671.140961 0.9967453
+Other-England            -406.35994  -805.912011   -6.807865 0.0420439
+Pakistan-England          237.44266  -249.853966  724.739285 0.9115693
+South Africa-England      225.40721  -306.939287  757.753714 0.9664671
+Sri Lanka-England         287.78290  -222.160553  797.726347 0.7921714
+West Indies-England       182.69646  -322.627761  688.020672 0.9902774
+Zimbabwe-England           89.42548  -469.553294  648.404254 0.9999961
+New Zealand-India        -146.61873  -669.716204  376.478739 0.9989686
+Other-India              -714.96389 -1132.136817 -297.790959 0.0000015
+Pakistan-India            -71.16129  -573.007278  430.684697 0.9999989
+South Africa-India        -83.19674  -628.892797  462.499324 0.9999977
+Sri Lanka-India           -20.82105  -544.685268  503.043162 1.0000000
+West Indies-India        -125.90749  -645.276301  393.461312 0.9997404
+Zimbabwe-India           -219.17847  -790.885269  352.528329 0.9843557
+Other-New Zealand        -568.34516 -1010.854842 -125.835470 0.0016387
+Pakistan-New Zealand       75.45744  -447.640030  598.554913 0.9999987
+South Africa-New Zealand   63.42200  -501.879482  628.723473 0.9999999
+Sri Lanka-New Zealand     125.79768  -418.458956  670.054315 0.9998370
+West Indies-New Zealand    20.71124  -519.219801  560.642277 1.0000000
+Zimbabwe-New Zealand      -72.55974  -663.008917  517.889441 0.9999998
+Pakistan-Other            643.80260   226.629669 1060.975527 0.0000308
+South Africa-Other        631.76715   162.759638 1100.774666 0.0006717
+Sri Lanka-Other           694.14284   250.727033 1137.558638 0.0000211
+West Indies-Other         589.05639   150.960725 1027.152063 0.0006961
+Zimbabwe-Other            495.78542    -3.246165  994.817002 0.0533588
+South Africa-Pakistan     -12.03545  -557.731507  533.660615 1.0000000
+Sri Lanka-Pakistan         50.34024  -473.523978  574.204453 1.0000000
+West Indies-Pakistan      -54.74620  -574.115011  464.622603 1.0000000
+Zimbabwe-Pakistan        -148.01718  -719.723978  423.689619 0.9995114
+Sri Lanka-South Africa     62.37568  -503.635369  628.386736 0.9999999
+West Indies-South Africa  -42.71076  -604.563722  519.142206 1.0000000
+Zimbabwe-South Africa    -135.98173  -746.541689  474.578222 0.9998870
+West Indies-Sri Lanka    -105.08644  -645.760353  435.587470 0.9999712
+Zimbabwe-Sri Lanka       -198.35742  -789.485985  392.771152 0.9948192
+Zimbabwe-West Indies      -93.27098  -680.419360  493.877410 0.9999964</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regional statistics calculation</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>regional_stats <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Region) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Runs =</span> <span class="fu">mean</span>(Runs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Players =</span> <span class="fu">n</span>(),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Strike_Rate =</span> <span class="fu">mean</span>(SR, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Centuries =</span> <span class="fu">sum</span>(X100, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Avg_Average =</span> <span class="fu">mean</span>(Ave, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create interactive bubble plot</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  regional_stats,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="sc">~</span>Avg_Runs,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="sc">~</span>Avg_Strike_Rate,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="sc">~</span>Total_Players,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="sc">~</span>Region,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="sc">~</span><span class="fu">paste</span>(</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Region:"</span>, Region,</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;br&gt;Average Runs:"</span>, <span class="fu">round</span>(Avg_Runs, <span class="dv">1</span>),</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;br&gt;Players:"</span>, Total_Players,</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;br&gt;Strike Rate:"</span>, <span class="fu">round</span>(Avg_Strike_Rate, <span class="dv">1</span>),</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;br&gt;Centuries:"</span>, Total_Centuries,</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;br&gt;Batting Average:"</span>, <span class="fu">round</span>(Avg_Average, <span class="dv">1</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"scatter"</span>,</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"markers"</span>,</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">marker =</span> <span class="fu">list</span>(</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">sizemode =</span> <span class="st">"area"</span>,</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">opacity =</span> <span class="fl">0.7</span>,</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">line =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">width =</span> <span class="dv">1</span>)</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">hoverinfo =</span> <span class="st">"text"</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Cricket Performance Analysis by Region"</span>,</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Average Runs per Player"</span>),</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"Average Strike Rate"</span>),</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">showlegend =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_bgcolor =</span> <span class="st">"rgb(240, 240, 240)"</span>,</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_bgcolor =</span> <span class="st">"white"</span>,</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">margin =</span> <span class="fu">list</span>(<span class="at">t =</span> <span class="dv">100</span>)</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-c1c49ccca8ddc98bf557" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c1c49ccca8ddc98bf557">{"x":{"visdat":{"7f68300f5f21":["function () ","plotlyVisDat"]},"cur_data":"7f68300f5f21","attrs":{"7f68300f5f21":{"x":{},"y":{},"text":{},"mode":"markers","marker":{"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","color":{},"size":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":100,"r":10},"title":"Cricket Performance Analysis by Region","xaxis":{"domain":[0,1],"automargin":true,"title":"Average Runs per Player"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Average Strike Rate"},"showlegend":true,"plot_bgcolor":"rgb(240, 240, 240)","paper_bgcolor":"white","hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[557.47727272727275],"y":[63.908181818181816],"text":"Region: Afghanistan <br>Average Runs: 557.5 <br>Players: 44 <br>Strike Rate: 63.9 <br>Centuries: 19 <br>Batting Average: 17.6","mode":"markers","marker":{"color":"rgba(102,194,165,1)","size":[10],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"Afghanistan","textfont":{"color":"rgba(102,194,165,1)","size":10},"error_y":{"color":"rgba(102,194,165,1)","width":10},"error_x":{"color":"rgba(102,194,165,1)","width":10},"line":{"color":"rgba(102,194,165,1)","width":10},"xaxis":"x","yaxis":"y","frame":null},{"x":[932.75688073394497],"y":[69.131834862385318],"text":"Region: Australia <br>Average Runs: 932.8 <br>Players: 219 <br>Strike Rate: 69.1 <br>Centuries: 228 <br>Batting Average: 21","mode":"markers","marker":{"color":"rgba(211,164,122,1)","size":[40.057251908396942],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"Australia","textfont":{"color":"rgba(211,164,122,1)","size":40.057251908396942},"error_y":{"color":"rgba(211,164,122,1)","width":40.057251908396942},"error_x":{"color":"rgba(211,164,122,1)","width":40.057251908396942},"line":{"color":"rgba(211,164,122,1)","width":40.057251908396942},"xaxis":"x","yaxis":"y","frame":null},{"x":[542.92913385826773],"y":[54.539682539682538],"text":"Region: Bangladesh <br>Average Runs: 542.9 <br>Players: 129 <br>Strike Rate: 54.5 <br>Centuries: 53 <br>Batting Average: 15.4","mode":"markers","marker":{"color":"rgba(229,147,127,1)","size":[24.599236641221374],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"Bangladesh","textfont":{"color":"rgba(229,147,127,1)","size":24.599236641221374},"error_y":{"color":"rgba(229,147,127,1)","width":24.599236641221374},"error_x":{"color":"rgba(229,147,127,1)","width":24.599236641221374},"line":{"color":"rgba(229,147,127,1)","width":24.599236641221374},"xaxis":"x","yaxis":"y","frame":null},{"x":[634.78775510204082],"y":[65.83725409836066],"text":"Region: England <br>Average Runs: 634.8 <br>Players: 246 <br>Strike Rate: 65.8 <br>Centuries: 184 <br>Batting Average: 19.7","mode":"markers","marker":{"color":"rgba(156,159,194,1)","size":[44.694656488549619],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"England","textfont":{"color":"rgba(156,159,194,1)","size":44.694656488549619},"error_y":{"color":"rgba(156,159,194,1)","width":44.694656488549619},"error_x":{"color":"rgba(156,159,194,1)","width":44.694656488549619},"line":{"color":"rgba(156,159,194,1)","width":44.694656488549619},"xaxis":"x","yaxis":"y","frame":null},{"x":[943.39170506912444],"y":[67.501395348837207],"text":"Region: India <br>Average Runs: 943.4 <br>Players: 217 <br>Strike Rate: 67.5 <br>Centuries: 292 <br>Batting Average: 18.3","mode":"markers","marker":{"color":"rgba(194,150,199,1)","size":[39.713740458015266],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"India","textfont":{"color":"rgba(194,150,199,1)","size":39.713740458015266},"error_y":{"color":"rgba(194,150,199,1)","width":39.713740458015266},"error_x":{"color":"rgba(194,150,199,1)","width":39.713740458015266},"line":{"color":"rgba(194,150,199,1)","width":39.713740458015266},"xaxis":"x","yaxis":"y","frame":null},{"x":[796.77297297297298],"y":[66.489673913043475],"text":"Region: New Zealand <br>Average Runs: 796.8 <br>Players: 187 <br>Strike Rate: 66.5 <br>Centuries: 132 <br>Batting Average: 19.2","mode":"markers","marker":{"color":"rgba(223,155,177,1)","size":[34.561068702290072],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"New Zealand","textfont":{"color":"rgba(223,155,177,1)","size":34.561068702290072},"error_y":{"color":"rgba(223,155,177,1)","width":34.561068702290072},"error_x":{"color":"rgba(223,155,177,1)","width":34.561068702290072},"line":{"color":"rgba(223,155,177,1)","width":34.561068702290072},"xaxis":"x","yaxis":"y","frame":null},{"x":[228.42781690140845],"y":[57.516843033509701],"text":"Region: Other <br>Average Runs: 228.4 <br>Players: 568 <br>Strike Rate: 57.5 <br>Centuries: 92 <br>Batting Average: 16.5","mode":"markers","marker":{"color":"rgba(182,204,108,1)","size":[100],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"Other","textfont":{"color":"rgba(182,204,108,1)","size":100},"error_y":{"color":"rgba(182,204,108,1)","width":100},"error_x":{"color":"rgba(182,204,108,1)","width":100},"line":{"color":"rgba(182,204,108,1)","width":100},"xaxis":"x","yaxis":"y","frame":null},{"x":[872.23041474654383],"y":[65.230833333333337],"text":"Region: Pakistan <br>Average Runs: 872.2 <br>Players: 220 <br>Strike Rate: 65.2 <br>Centuries: 203 <br>Batting Average: 20","mode":"markers","marker":{"color":"rgba(209,217,69,1)","size":[40.229007633587784],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"Pakistan","textfont":{"color":"rgba(209,217,69,1)","size":40.229007633587784},"error_y":{"color":"rgba(209,217,69,1)","width":40.229007633587784},"error_x":{"color":"rgba(209,217,69,1)","width":40.229007633587784},"line":{"color":"rgba(209,217,69,1)","width":40.229007633587784},"xaxis":"x","yaxis":"y","frame":null},{"x":[860.19496855345915],"y":[70.673899371069183],"text":"Region: South Africa <br>Average Runs: 860.2 <br>Players: 159 <br>Strike Rate: 70.7 <br>Centuries: 183 <br>Batting Average: 20.2","mode":"markers","marker":{"color":"rgba(253,215,61,1)","size":[29.751908396946565],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"South Africa","textfont":{"color":"rgba(253,215,61,1)","size":29.751908396946565},"error_y":{"color":"rgba(253,215,61,1)","width":29.751908396946565},"error_x":{"color":"rgba(253,215,61,1)","width":29.751908396946565},"line":{"color":"rgba(253,215,61,1)","width":29.751908396946565},"xaxis":"x","yaxis":"y","frame":null},{"x":[922.570652173913],"y":[63.51565217391304],"text":"Region: Sri Lanka <br>Average Runs: 922.6 <br>Players: 185 <br>Strike Rate: 63.5 <br>Centuries: 178 <br>Batting Average: 17","mode":"markers","marker":{"color":"rgba(237,202,125,1)","size":[34.217557251908396],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"Sri Lanka","textfont":{"color":"rgba(237,202,125,1)","size":34.217557251908396},"error_y":{"color":"rgba(237,202,125,1)","width":34.217557251908396},"error_x":{"color":"rgba(237,202,125,1)","width":34.217557251908396},"line":{"color":"rgba(237,202,125,1)","width":34.217557251908396},"xaxis":"x","yaxis":"y","frame":null},{"x":[817.48421052631579],"y":[65.322380952380954],"text":"Region: West Indies <br>Average Runs: 817.5 <br>Players: 190 <br>Strike Rate: 65.3 <br>Centuries: 179 <br>Batting Average: 18.9","mode":"markers","marker":{"color":"rgba(212,190,160,1)","size":[35.076335877862597],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"West Indies","textfont":{"color":"rgba(212,190,160,1)","size":35.076335877862597},"error_y":{"color":"rgba(212,190,160,1)","width":35.076335877862597},"error_x":{"color":"rgba(212,190,160,1)","width":35.076335877862597},"line":{"color":"rgba(212,190,160,1)","width":35.076335877862597},"xaxis":"x","yaxis":"y","frame":null},{"x":[724.21323529411768],"y":[60.730296296296295],"text":"Region: Zimbabwe <br>Average Runs: 724.2 <br>Players: 136 <br>Strike Rate: 60.7 <br>Centuries: 64 <br>Batting Average: 16.1","mode":"markers","marker":{"color":"rgba(179,179,179,1)","size":[25.801526717557252],"sizemode":"area","opacity":0.69999999999999996,"line":{"color":"white","width":1}},"hoverinfo":"text","type":"scatter","name":"Zimbabwe","textfont":{"color":"rgba(179,179,179,1)","size":25.801526717557252},"error_y":{"color":"rgba(179,179,179,1)","width":25.801526717557252},"error_x":{"color":"rgba(179,179,179,1)","width":25.801526717557252},"line":{"color":"rgba(179,179,179,1)","width":25.801526717557252},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="interpretation" class="level1">
+<h1>INTERPRETATION</h1>
+<p>ANOVA Results</p>
+<p>The Analysis of Variance (ANOVA) test was conducted to determine whether there are statistically significant differences in the total runs scored by players across different regions. The key findings are:</p>
+<p>P-Value Interpretation:</p>
+<p>The p-value from the ANOVA summary indicates whether there is a significant difference in the means of total runs scored across regions. If the p-value is less than 0.05, it suggests that at least one region’s players have significantly different total runs compared to others. In this case, since the p-value is below 0.05, there are significant differences between the regions.</p>
+<p>Post-Hoc Analysis:</p>
+<p>A Tukey HSD Post-Hoc Test was performed to identify which specific pairs of regions differ significantly. From the Tukey results:</p>
+<p>Significant differences were observed between certain regions (e.g., Other-Australia shows a notable difference with a significant p-value). For most other comparisons, no statistically significant differences were found (p-values &gt; 0.05).</p>
+<p>Bubble Plot Interpretation</p>
+<p>The Bubble Plot visualizes the cricket performance metrics for each region based on key statistics like average runs, average strike rate, and the number of players. Key observations from the plot include:</p>
+<p>Average Runs:</p>
+<p>Regions like Australia, India, and South Africa have higher average runs per player, indicating a strong overall batting performance. Lower average runs were observed for Afghanistan and Other regions.</p>
+<p>Average Strike Rate:</p>
+<p>Afghanistan and West Indies players have higher strike rates, indicating an aggressive playing style. Bangladesh and Zimbabwe players tend to have lower strike rates, suggesting a more conservative approach.</p>
+<p>Bubble Size (Total Players):</p>
+<p>Larger bubbles represent regions with more players contributing to the dataset (e.g., India, Australia). Smaller bubbles, such as Afghanistan, represent fewer players, which may influence the variability in performance statistics.</p>
+<p>Key Insights</p>
+<p>Statistical Significance:</p>
+<p>The ANOVA test confirms that there are significant differences in total runs scored among players from different regions. The Tukey Post-Hoc test highlights the specific regional pairs where differences are significant.</p>
+<p>Performance Trends:</p>
+<p>Established cricketing nations like Australia, India, and South Africa exhibit consistently high performance in both average runs and strike rates. Emerging cricketing nations like Afghanistan and Bangladesh have lower average runs but demonstrate potential with a few standout players. Strategic Implications:</p>
+<p>Cricket boards can use these insights to identify underperforming regions and allocate resources for talent development. Established regions can focus on maintaining their high performance by nurturing upcoming players.</p>
+</section>
+<section id="are-high-strike-rates-associated-with-fewer-centuries-and-half-centuries" class="level1">
+<h1>Are high strike rates associated with fewer centuries and half-centuries?</h1>
+<p>Research Question: Are aggressive players (with high strike rates) less likely to achieve big innings like centuries or half-centuries?</p>
+<p>Detailed Explanation: This question investigates the trade-off between aggression and consistency in cricket. Players with high strike rates may focus on quick scoring rather than building large innings, potentially resulting in fewer centuries or half-centuries. The relationship between strike rate (categorized as high, medium, low) and milestones (centuries, half-centuries) is analyzed using a Chi-Square test for independence.</p>
+<p>Outcome:</p>
+<p>Insight into whether high strike rates compromise the ability to score big innings. Helps teams balance aggressive and consistent players in their batting lineup.</p>
+<p>Visualization:</p>
+<p>A pie chart showing the proportion of centuries and half-centuries for each strike rate category.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ODI data.csv"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorize players by strike rate (High: &gt;90, Low: &lt;=90)</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>SR_Category <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>SR <span class="sc">&gt;</span> <span class="dv">90</span>, <span class="st">"High"</span>, <span class="st">"Low"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a contingency table</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>contingency_table <span class="ot">&lt;-</span> <span class="fu">table</span>(data<span class="sc">$</span>SR_Category, data<span class="sc">$</span>X100 <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Chi-Square Test for Independence</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>chi_square_test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(contingency_table)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print Chi-Square Test Results</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(chi_square_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  contingency_table
+X-squared = 22.601, df = 1, p-value = 1.994e-06</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pie chart for Strike Rate vs Centuries</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"High Strike Rate &amp; No Century"</span>, <span class="st">"High Strike Rate &amp; Century"</span>, </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Low Strike Rate &amp; No Century"</span>, <span class="st">"Low Strike Rate &amp; Century"</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="fu">c</span>(contingency_table[<span class="dv">1</span>, <span class="dv">1</span>], contingency_table[<span class="dv">1</span>, <span class="dv">2</span>], </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>             contingency_table[<span class="dv">2</span>, <span class="dv">1</span>], contingency_table[<span class="dv">2</span>, <span class="dv">2</span>]),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"pie"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">textinfo =</span> <span class="st">"label+percent"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">hoverinfo =</span> <span class="st">"label+value"</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Strike Rate vs. Centuries (Pie Chart)"</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_bgcolor =</span> <span class="st">"rgb(240, 240, 240)"</span>,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_bgcolor =</span> <span class="st">"white"</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-0164be00e5c630e716a2" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-0164be00e5c630e716a2">{"x":{"visdat":{"7f6830772a6d":["function () ","plotlyVisDat"]},"cur_data":"7f6830772a6d","attrs":{"7f6830772a6d":{"labels":["High Strike Rate & No Century","High Strike Rate & Century","Low Strike Rate & No Century","Low Strike Rate & Century"],"values":[79,37,2027,357],"textinfo":"label+percent","hoverinfo":"label+value","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Strike Rate vs. Centuries (Pie Chart)","plot_bgcolor":"rgb(240, 240, 240)","paper_bgcolor":"white","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["High Strike Rate & No Century","High Strike Rate & Century","Low Strike Rate & No Century","Low Strike Rate & Century"],"values":[79,37,2027,357],"textinfo":"label+percent","hoverinfo":["label+value","label+value","label+value","label+value"],"type":"pie","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="interpretation-1" class="level1">
+<h1>INTERPRETATION</h1>
+<p>Chi-Square Test Results</p>
+<p>The Chi-Square Test for Independence examines the association between strike rate categories (High vs.&nbsp;Low) and the achievement of centuries. The results are as follows:</p>
+<p>Chi-Square Value: 22.601 Degrees of Freedom (df): 1 P-Value: 1.994e-06</p>
+<p>Since the p-value is less than 0.05, we reject the null hypothesis that strike rate and the likelihood of scoring centuries are independent. This indicates a significant association between strike rate categories and the achievement of centuries. Players with higher strike rates are statistically more likely to score centuries.</p>
+<p>Pie Chart Interpretation</p>
+<p>The pie chart visualizes the relationship between strike rate categories (High and Low) and the occurrence of centuries. Key observations:</p>
+<p>Low Strike Rate &amp; No Century (81.1%):</p>
+<p>The majority of players with a low strike rate do not score centuries. This indicates that lower strike rates are generally associated with a lesser ability to achieve big scores.</p>
+<p>Low Strike Rate &amp; Century (14.3%):</p>
+<p>A smaller proportion of players with low strike rates manage to score centuries. This suggests that although rare, players with lower strike rates can still achieve big innings.</p>
+<p>High Strike Rate &amp; No Century (3.16%):</p>
+<p>A very small fraction of players with high strike rates fail to score centuries. This supports the notion that high-strike-rate players are often aggressive and capable of scoring big.</p>
+<p>High Strike Rate &amp; Century (1.48%):</p>
+<p>A minimal percentage of players with high strike rates have scored centuries. However, this small proportion highlights the possibility that aggressive batting styles can still produce substantial scores.</p>
+<p>Key Insights</p>
+<p>Statistical Significance:</p>
+<p>The Chi-Square Test confirms a strong association between higher strike rates and the likelihood of scoring centuries.</p>
+<p>Practical Implications:</p>
+<p>Players with high strike rates are valuable in formats requiring quick scoring and are more likely to impact matches significantly. However, low-strike-rate players, typically anchors, are also capable of scoring centuries in prolonged innings.</p>
+<p>Strategic Insights:</p>
+<p>Teams can use this analysis to balance their lineup by including both high-strike-rate players (aggressors) and low-strike-rate players (anchors), optimizing strategies based on match conditions.</p>
+</section>
+<section id="do-higher-strike-rates-correlate-with-specific-roles-in-the-team-e.g.-openers-vs.-middle-order" class="level1">
+<h1>Do higher strike rates correlate with specific roles in the team (e.g., openers vs.&nbsp;middle-order)?</h1>
+<p>Cause:</p>
+<p>This analysis aims to help teams optimize their batting order by identifying which roles are most associated with high-strike-rate players. Understanding this correlation allows for better utilization of player strengths in different match situations.</p>
+<p>Statistical Model:</p>
+<p>Chi-Square Test for Independence</p>
+<p>This model evaluates whether there is a significant association between batting positions (e.g., opener, middle-order) and strike rate categories (e.g., very high, high, medium, low). How it solves the question: By comparing the distribution of players across strike rate categories for different batting positions, the Chi-Square test determines if these two variables are statistically related.</p>
+<p>Visualization: An interactive heatmap displays the distribution of strike rate categories across batting positions, making it easy to identify patterns or outliers in the data.</p>
+<p>Statistical Outputs:</p>
+<p>Chi-Square test results, including test statistics and p-values, to determine whether the observed association is significant.</p>
+<p>Visualization:</p>
+<p>A heatmap showing the relationship between strike rate categories and batting positions.</p>
+<p>Insights:</p>
+<p>Insights on which batting roles are more likely to feature players with high strike rates, aiding in team composition decisions.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read and prepare data</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ODI data.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert strike rate to numeric</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>SR <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(data<span class="sc">$</span>SR))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorize strike rates</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>SR_Category <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  data<span class="sc">$</span>SR <span class="sc">&gt;=</span> <span class="dv">100</span> <span class="sc">~</span> <span class="st">"Very High (100+)"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  data<span class="sc">$</span>SR <span class="sc">&gt;=</span> <span class="dv">85</span> <span class="sc">~</span> <span class="st">"High (85-99)"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  data<span class="sc">$</span>SR <span class="sc">&gt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"Medium (70-84)"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Low (&lt;70)"</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create batting position categories</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Position <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="st">"opener|opening"</span>, <span class="fu">tolower</span>(data<span class="sc">$</span>Player)) <span class="sc">~</span> <span class="st">"Opener"</span>,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grepl</span>(<span class="st">"wicket|keeper"</span>, <span class="fu">tolower</span>(data<span class="sc">$</span>Player)) <span class="sc">~</span> <span class="st">"Wicketkeeper"</span>,</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  data<span class="sc">$</span>SR <span class="sc">&gt;=</span> <span class="dv">90</span> <span class="sc">~</span> <span class="st">"Aggressive Middle"</span>,</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  data<span class="sc">$</span>SR <span class="sc">&gt;=</span> <span class="dv">75</span> <span class="sc">~</span> <span class="st">"Anchor Middle"</span>,</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Lower Order"</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a contingency table</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>position_sr_matrix <span class="ot">&lt;-</span> <span class="fu">table</span>(data<span class="sc">$</span>Position, data<span class="sc">$</span>SR_Category)</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Chi-Square Test for Independence</span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>chi_square_test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(position_sr_matrix)</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Print test results</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(chi_square_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  position_sr_matrix
+X-squared = 3254.4, df = 6, p-value &lt; 2.2e-16</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create interactive heatmap with custom colors</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">colnames</span>(position_sr_matrix),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rownames</span>(position_sr_matrix),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">z =</span> <span class="fu">as.matrix</span>(position_sr_matrix),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"heatmap"</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">colorscale =</span> <span class="fu">list</span>(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">0</span>, <span class="st">"#FFF3E0"</span>),      <span class="co"># Light Orange</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="st">"#FFB74D"</span>),   <span class="co"># Medium Orange</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="st">"#FF9800"</span>),    <span class="co"># Orange</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fl">0.75</span>, <span class="st">"#F57C00"</span>),   <span class="co"># Dark Orange</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">1</span>, <span class="st">"#E65100"</span>)       <span class="co"># Deep Orange</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> position_sr_matrix,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">texttemplate =</span> <span class="st">"%{text}"</span>,</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">textfont =</span> <span class="fu">list</span>(</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">14</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">hoverongaps =</span> <span class="cn">FALSE</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">list</span>(</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">text =</span> <span class="st">"Strike Rate Distribution Across Batting Positions"</span>,</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">font =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">16</span>)</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Strike Rate Category"</span>,</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">titlefont =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">14</span>)</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">yaxis =</span> <span class="fu">list</span>(</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Batting Position"</span>,</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">titlefont =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">14</span>)</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot_bgcolor =</span> <span class="st">"#FFFFFF"</span>,</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">paper_bgcolor =</span> <span class="st">"#FFFFFF"</span>,</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">margin =</span> <span class="fu">list</span>(<span class="at">t =</span> <span class="dv">100</span>)</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-89a1edfa75d31c8dc371" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-89a1edfa75d31c8dc371">{"x":{"visdat":{"7f6851e6b55":["function () ","plotlyVisDat"]},"cur_data":"7f6851e6b55","attrs":{"7f6851e6b55":{"x":["High (85-99)","Low (<70)","Medium (70-84)","Very High (100+)"],"y":["Aggressive Middle","Anchor Middle","Lower Order"],"z":[[118,0,0,168],[122,0,339,0],[0,1540,213,0]],"colorscale":[["0","#FFF3E0"],["0.25","#FFB74D"],["0.5","#FF9800"],["0.75","#F57C00"],["1","#E65100"]],"text":[[118,0,0,168],[122,0,339,0],[0,1540,213,0]],"texttemplate":"%{text}","textfont":{"color":"black","size":14},"hoverongaps":false,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"heatmap"}},"layout":{"margin":{"b":40,"l":60,"t":100,"r":10},"title":{"text":"Strike Rate Distribution Across Batting Positions","font":{"size":16}},"xaxis":{"domain":[0,1],"automargin":true,"title":"Strike Rate Category","titlefont":{"size":14}},"yaxis":{"domain":[0,1],"automargin":true,"title":"Batting Position","titlefont":{"size":14}},"plot_bgcolor":"#FFFFFF","paper_bgcolor":"#FFFFFF","scene":{"zaxis":{"title":[]}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","#FFF3E0"],["0.25","#FFB74D"],["0.5","#FF9800"],["0.75","#F57C00"],["1","#E65100"]],"showscale":true,"x":["High (85-99)","Low (<70)","Medium (70-84)","Very High (100+)"],"y":["Aggressive Middle","Anchor Middle","Lower Order"],"z":[[118,0,0,168],[122,0,339,0],[0,1540,213,0]],"text":[[118,0,0,168],[122,0,339,0],[0,1540,213,0]],"texttemplate":"%{text}","textfont":{"color":"black","size":14},"hoverongaps":false,"type":"heatmap","xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="interpretation-2" class="level1">
+<h1>INTERPRETATION</h1>
+<p>Chi-Square Test for Independence The Chi-Square Test for Independence was performed to evaluate whether there is a significant association between a player’s batting position (e.g., lower order, middle order) and their strike rate category (e.g., low, medium, high, very high). The key findings are:</p>
+<p>Test Results:</p>
+<p>Chi-Square Statistic (X²): 3254.4 Degrees of Freedom (df): 6 p-value: &lt; 2.2e-16 (extremely small)</p>
+<p>Interpretation:</p>
+<p>Since the p-value is significantly less than 0.05, we reject the null hypothesis, indicating that there is no strong association between a player’s batting position and their strike rate category. This means that strike rates are not randomly distributed across batting positions, and certain strike rate patterns are strongly linked to specific roles in the team . Heatmap Visualization</p>
+<p>The heatmap visually represents the distribution of strike rate categories across batting positions. Each cell’s color intensity corresponds to the frequency of players in that category. Key observations include:</p>
+<p>Lower Order:</p>
+<p>The majority of players in the lower order fall into the low strike rate (&lt;70) category (1540 players), indicating a less aggressive batting style, likely focused on defensive or supporting roles.</p>
+<p>Anchor Middle:</p>
+<p>Players in the anchor middle-order dominate the medium (70-84) and high (85-99) strike rate categories, showcasing their role in stabilizing the innings and building partnerships.</p>
+<p>Aggressive Middle:</p>
+<p>The aggressive middle-order players are predominantly found in the high (85-99) and very high (100+) strike rate categories, reflecting their role as explosive, run-scoring players.</p>
+<p>Key Insight s Strong Association:</p>
+<p>The statistical test confirms that batting positions and strike rate categories are strongly associated, meaning that players’ strike rates are highly influenced by their roles in the team.</p>
+<p>Role-Specific Strike Rates:</p>
+<p>Lower-order players exhibit lower strike rates, as expected, since they often play as bowlers or tailenders. Anchor middle-order players demonstrate balanced strike rates to ensure stability. Aggressive middle-order players have higher strike rates, fulfilling their role as aggressive batsmen tasked with scoring runs quickly.</p>
+<p>Strategic Implications:</p>
+<p>This analysis can help cricket teams optimize their batting lineups by aligning players’ strike rate tendencies with the demands of specific positions. For example, teams can ensure that players with higher strike rates are placed in positions requiring quick scoring, while more stable batsmen occupy anchor roles.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>CONCLUSION</h1>
+<p>The Cricket Performance Analysis project provides a comprehensive overview of player performances and patterns across various aspects of One Day International (ODI) cricket. Through statistical analyses and visualizations, the project explored key factors that contribute to player success, team strategies, and regional trends.</p>
+<p>The project not only highlights the value of data-driven decision-making in cricket but also emphasizes the importance of understanding player roles, regional dynamics, and individual performances. The findings can guide cricket boards, coaches, and analysts in formulating strategies, scouting talent, and improving team compositions.</p>
+<p>Future work could expand on this foundation by integrating advanced machine learning models, incorporating bowling and fielding metrics, and analyzing more recent datasets to uncover evolving trends in ODI cricket.</p>
+</section>
+<section id="refrences" class="level1">
+<h1>REFRENCES</h1>
+<p>[1] J. K. Aggarwal, Data Analytics in Cricket: Applications and Challenges. London: CRC Press, 2019.</p>
+<p>[2] ESPNcricinfo, “Cricket Records and Statistics,” [Online]. Available: https://www.espncricinfo.com/. [Accessed: Dec.&nbsp;4, 2024].</p>
+<p>[3] M. Bunker and S. Thabtah, “A machine learning framework for sport result prediction,” Applied Computing and Informatics, vol.&nbsp;15, no. 1, pp.&nbsp;27–33, 2019. [Online]. Available: https://doi.org/10.1016/j.aci.2017.09.005.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
